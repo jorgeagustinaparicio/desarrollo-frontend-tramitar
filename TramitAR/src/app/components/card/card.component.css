@@ -1,0 +1,27 @@
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s; /* Añade una transición suave al transformar */
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgb(242, 101, 255);
+  transform: scale(1.05); /* Aumenta el tamaño de la tarjeta un 5% al hacer hover */
+}
+
+.accordion-button:hover{
+  background-color: rgb(247, 141, 241);
+  color: white;
+}
+
+.card-img-top {
+    height: 17em;
+    width: 100%; /* Asegúrate de que la imagen cubra todo el ancho del contenedor */
+    object-fit: cover; /* Hace que la imagen mantenga su aspecto mientras llena el contenedor */
+  }
+
+.card-title {
+    white-space: nowrap; /* Evita que el texto se envuelva a la siguiente línea */
+    overflow: hidden; /* Oculta cualquier texto que exceda el ancho del contenedor */
+    text-overflow: ellipsis; /* Indica que el texto se ha cortado con puntos suspensivos (...) */
+}
