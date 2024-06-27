@@ -7,6 +7,6 @@ export const routes: Routes = [
         path: '', component: HomeComponent
     },
     {
-        path: 'panel', component: PanelComponent
+        path: 'admin', component: PanelComponent
     }
 ];
