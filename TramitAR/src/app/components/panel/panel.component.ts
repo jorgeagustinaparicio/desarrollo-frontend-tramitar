@@ -11,16 +11,18 @@ import { CommonModule } from '@angular/common';
   styleUrl: './panel.component.css'
 })
 export class PanelComponent implements OnInit {
+  organismosList: any[] = [];
 
-  organismosList: Organism[] = [];
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService) { }
 
-  }
   ngOnInit(): void {
     this.getOrganismos()
   }
   getOrganismos() {
-    throw new Error('Method not implemented.');
+    this.dataService.getData().subscribe((data: any) => {
+      console.log('Data received:', data);
+      this.organismosList = data.organismos;//aqui se asignan los organismos una vez resuelta la promesa
+    });//.organismo se refiere al array dentro del JSON
   }
   // getOrganismos() {
   //   this.dataService.getOrganismo().subscribe({
@@ -32,4 +34,5 @@ export class PanelComponent implements OnInit {
   //     }
   //   })
   // }
+
 }

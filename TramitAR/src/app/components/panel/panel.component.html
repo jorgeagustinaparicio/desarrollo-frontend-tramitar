@@ -10,9 +10,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of organismosList; let i = index">
+            <tr *ngFor="let organism of organismosList; let i = index">
             <tr>
-                <th scope="row">{{item.id}}</th>
+                <th scope="row">{{organismosList.}}</th>
                 <td>{{item.nombre}}</td>
                 <td>
                     <img [src]="item.imagen" alt="organismos">
@@ -21,8 +21,8 @@
 
         </tbody>
     </table>
-</div> -->
-<h1>algo</h1>
+</div>
+<h1>algo</h1> -->
 <!-- <div style="padding: 50px;">
     <h1 class="text-center">Lista de Organismos</h1>
     <table class="table table-hover">
@@ -41,3 +41,26 @@
             </tr> } </tbody>
     </table>
 </div> -->
+
+<!-- panel.component.html -->
+<div style="padding: 50px;">
+    <h1 class="text-center">Lista de Organismos</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Tramites</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of organismosList; let i = index">
+                <th scope="row">{{item.id}}</th>
+                <td>{{item.nombre}}</td>
+                <td> <img [src]="item.imagen" alt="organismos" class="w-10" style="width: 10%; height: auto;"> </td>
+                <td>Tramites</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

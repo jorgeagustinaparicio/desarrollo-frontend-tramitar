@@ -1,31 +1,32 @@
-<div class="card">
+<!-- <div class="card">
+    <img [src]="organism.imagen" class="card-img-top img-fluid" alt="...">
     <h5 class="card-title">{{ organism.nombre }}</h5>
     <ul>
         <li *ngFor="let procedure of procedures">{{ procedure.nombre }}</li>
     </ul>
-</div>
+</div> -->
 
-<!-- <div class="card border-primary mb-3" style="width: 18rem;">
-    <img [src]="organismo.imagen" class="card-img-top img-fluid" alt="...">
+<div class="card border-primary mb-3" style="width: 18rem;">
+    <img [src]="organism.imagen" class="card-img-top img-fluid" alt="...">
     <div class="card-body">
-        <h5 class="card-title">{{ organismo.nombre }}</h5>
-        <div class="accordion" [id]="'accordionExample' + organismo.id">
+        <h5 class="card-title">{{ organism.nombre }}</h5>
+        <div class="accordion" [id]="'accordionExample' + organism.id">
             <div class="accordion-item">
-                <h2 class="accordion-header" [id]="'heading' + organismo.id">
+                <h2 class="accordion-header" [id]="'heading' + organism.id">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        [attr.data-bs-target]="'#collapse' + organismo.id" aria-expanded="true"
-                        [attr.aria-controls]="'collapse' + organismo.id">
+                        [attr.data-bs-target]="'#collapse' + organism.id" aria-expanded="true"
+                        [attr.aria-controls]="'collapse' + organism.id">
                         Trámites
                     </button>
                 </h2>
-                <div [id]="'collapse' + organismo.id" class="accordion-collapse collapse"
-                    [attr.aria-labelledby]="'heading' + organismo.id"
-                    [attr.data-bs-parent]="'#accordionExample' + organismo.id">
+                <div [id]="'collapse' + organism.id" class="accordion-collapse collapse"
+                    [attr.aria-labelledby]="'heading' + organism.id"
+                    [attr.data-bs-parent]="'#accordionExample' + organism.id">
                     <div class="accordion-body">
                         <ul class="list-group">
-                            <li class="list-group-item" *ngFor="let tramite of tramites">
-                                <a [href]="tramite.link">{{ tramite.nombre }}</a>
-                                <p>{{ tramite.descripcion }}</p>
+                            <li class="list-group-item" *ngFor="let procedure of procedures">
+                                <a [href]="procedure.link">{{ procedure.nombre }}</a>
+                                <p>{{ procedure.descripcion }}</p>
                             </li>
                         </ul>
                     </div>
@@ -33,4 +34,4 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
