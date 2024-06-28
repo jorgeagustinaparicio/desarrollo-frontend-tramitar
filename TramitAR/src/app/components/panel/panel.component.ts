@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { Organism } from '../../models/organismo.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -22,7 +21,11 @@ export class PanelComponent implements OnInit {
     this.dataService.getData().subscribe((data: any) => {
       console.log('Data received:', data);
       this.organismosList = data.organismos;//aqui se asignan los organismos una vez resuelta la promesa
-    });//.organismo se refiere al array dentro del JSON
+      this.organismosList = data.organismos.map((organismo: any) => {
+        const tramites = data.tramites.filter((trámite: any) => trámite.id_organismo === organismo.id);
+        return { ...organismo, tramites };
+      });//.organismo se refiere al array dentro del JSON
+    });
   }
   // getOrganismos() {
   //   this.dataService.getOrganismo().subscribe({
