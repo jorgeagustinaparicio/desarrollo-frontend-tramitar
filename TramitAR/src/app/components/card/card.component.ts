@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { Organismo } from '../../models/organismo.model';
-import { Tramite } from '../../models/tramite.model';
+import { Procedure } from '../../models/tramite.model';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -13,14 +12,16 @@ import { DataService } from '../../services/data.service';
 })
 export class CardComponent implements OnInit {
 
-  @Input() organismo!: Organismo;
-  tramites: Tramite[] = [];
+  @Input() organism: any;//abilita la puerta de entrada
+  procedures: Procedure[] = [];
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.getTramites().subscribe(tramites => {
-      this.tramites = tramites.filter(t => t.id_organismo === this.organismo.id);
+    console.log('Organism received:', this.organism);
+    this.dataService.getData().subscribe((data: any) => {
+      console.log('Trámites received:', data.tramites);
+      this.procedures = data.tramites.filter((procedure: any) => procedure.id_organismo === this.organism.id);
     });
   }
 

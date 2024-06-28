@@ -1,4 +1,4 @@
-export interface Tramite {
+export interface Procedure {
     id: number;
     nombre: string;
     descripcion: string;

@@ -1,23 +1,30 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Organismo } from '../models/organismo.model';
-import { Tramite } from '../models/tramite.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  private organismosUrl = 'https://mocki.io/v1/06147c50-e097-4aa4-87e5-29c13bc39cdf';
-  private tramitesUrl = 'https://mocki.io/v1/29687ee7-8efb-440a-aa4c-b8b36b32c283';
+
+  private apiUrl = 'https://mocki.io/v1/6ddc8c79-6f32-4a49-8b1f-34b42bb44a11'; // reemplaza con tu URL de API
 
   constructor(private http: HttpClient) { }
 
-  getOrganismos(): Observable<Organismo[]> {
-    return this.http.get<Organismo[]>(this.organismosUrl);
-  }
-
-  getTramites(): Observable<Tramite[]> {
-    return this.http.get<Tramite[]>(this.tramitesUrl);
+  getData(): Observable<any> {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+    return this.http.get(this.apiUrl, httpOptions).pipe(
+      tap(response => {
+        console.log('Response from API:', response);
+      }),
+      catchError(error => {
+        console.error('Error:', error);
+        return throwError(error);
+      })
+    );
   }
 }

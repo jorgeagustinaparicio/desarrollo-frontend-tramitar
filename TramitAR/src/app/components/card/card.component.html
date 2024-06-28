@@ -1,4 +1,11 @@
-<div class="card border-primary mb-3" style="width: 18rem;">
+<div class="card">
+    <h5 class="card-title">{{ organism.nombre }}</h5>
+    <ul>
+        <li *ngFor="let procedure of procedures">{{ procedure.nombre }}</li>
+    </ul>
+</div>
+
+<!-- <div class="card border-primary mb-3" style="width: 18rem;">
     <img [src]="organismo.imagen" class="card-img-top img-fluid" alt="...">
     <div class="card-body">
         <h5 class="card-title">{{ organismo.nombre }}</h5>
@@ -26,4 +33,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
