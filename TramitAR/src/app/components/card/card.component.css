@@ -9,6 +9,10 @@
   transform: scale(1.05); /* Aumenta el tamaño de la tarjeta un 5% al hacer hover */
 }
 
+/* .accordion-button{
+  background-color: #2f0f58;
+} */
+
 .accordion-button:hover{
   background-color: rgb(247, 141, 241);
   color: white;
@@ -25,3 +29,9 @@
     overflow: hidden; /* Oculta cualquier texto que exceda el ancho del contenedor */
     text-overflow: ellipsis; /* Indica que el texto se ha cortado con puntos suspensivos (...) */
 }
+
+
+/* .ov-card-grid:hover .ov-card-blur:not(:hover) {
+    filter: brightness(0.5) saturate(0.5) contrast(1.2) blur(2px);
+    transition: filter 200ms linear, transform 200ms linear;
+} */

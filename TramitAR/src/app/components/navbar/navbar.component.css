@@ -1,3 +1,10 @@
+/* .navbar{
+   position: fixed;
+   top: 0;
+   width: 100%;
+   left: 0;
+   z-index: 1;
+} */
 .logo {
     width: 150px;
      filter: drop-shadow(0 0 2px rgba(246, 252, 255, 0.9));
