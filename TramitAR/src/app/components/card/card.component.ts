@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { Organismo } from '../../models/organismo.model';
+
 
 @Component({
   selector: 'app-card',
@@ -11,7 +13,7 @@ import { DataService } from '../../services/data.service';
 })
 export class CardComponent implements OnInit {
 
-  @Input() organism: any;//Habilita la puerta de entrada
+  @Input() organism!: Organismo;//Habilita la puerta de entrada
 
 
   constructor(private dataService: DataService) { }
@@ -19,7 +21,4 @@ export class CardComponent implements OnInit {
   ngOnInit(): void { 
 
   }
-
-
-
 }

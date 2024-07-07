@@ -33,15 +33,5 @@ throw new Error('Method not implemented.');
       });//.organismo se refiere al array dentro del JSON
     });
   }
-  // getOrganismos() {
-  //   this.dataService.getOrganismo().subscribe({
-  //     next: (data) => {
-  //       this.organismosList = data.organismo;
-  //     },
-  //     error: (err) => {
-  //       console.log(err);
-  //     }
-  //   })
-  // }
-
+  
 }
