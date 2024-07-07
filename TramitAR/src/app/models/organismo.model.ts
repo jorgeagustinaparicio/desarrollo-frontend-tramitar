@@ -1,4 +1,4 @@
-// organism.model.ts
+
 export class Organism {
     id: number;
     name: string;
@@ -14,9 +14,3 @@ export class Organism {
 }
 
 
-//esta
-// export interface Organismo {
-//     id: number;
-//     nombre: string;
-//     imagen: string;
-// }

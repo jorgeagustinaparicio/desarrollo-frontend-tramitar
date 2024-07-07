@@ -1,9 +1,9 @@
-import { Procedure } from "./tramite.model";
+import { Tramite } from "./tramite.model";
 
 export interface OrganismWithTramites {
     id: number;
     name: string;
     description: string;
     image: string;
-    tramites: Procedure[];
+    tramites: Tramite[];
 }

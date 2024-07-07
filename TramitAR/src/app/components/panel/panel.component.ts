@@ -10,13 +10,19 @@ import { CommonModule } from '@angular/common';
   styleUrl: './panel.component.css'
 })
 export class PanelComponent implements OnInit {
+updateTramite(_t26: any) {
+throw new Error('Method not implemented.');
+}
+deleteTramite(_t26: any) {
+throw new Error('Method not implemented.');
+}
   organismosList: any[] = [];
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.getOrganismos()
-  }
+  } 
   getOrganismos() {
     this.dataService.getData().subscribe((data: any) => {
       console.log('Data received:', data);

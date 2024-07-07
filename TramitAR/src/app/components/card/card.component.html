@@ -16,9 +16,9 @@
                     [attr.data-bs-parent]="'#accordionExample' + organism.id">
                     <div class="accordion-body">
                         <ul class="list-group">
-                            <li class="list-group-item" *ngFor="let procedure of procedures">
-                                <a [href]="procedure.link">{{ procedure.nombre }}</a>
-                                <p>{{ procedure.descripcion }}</p>
+                            <li class="list-group-item" *ngFor="let tramite of organism.tramites">
+                                <a [href]="tramite.link">{{ tramite.nombre }}</a>
+                                <p>{{ tramite.descripcion }}</p>
                             </li>
                         </ul>
                     </div>

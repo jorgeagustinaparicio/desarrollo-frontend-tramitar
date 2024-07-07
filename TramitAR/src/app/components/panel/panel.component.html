@@ -64,49 +64,58 @@
         </tbody>
     </table>
 </div> -->
-<div class="container pt-5">
-    <!-- <div class="container d-flex justify-content-center me-auto">
+
+<!-- copiar abajo del containter y atrás de la tabla <div class="container d-flex justify-content-center me-auto">
 
         <button type="button" class="btn btn-success">Agregar</button>
         <button type="button" class="btn btn-warning">Modificar</button>
         <button type="button" class="btn btn-danger">Eliminar</button>
     </div> -->
-    <table class="table table-hover me-auto">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Imagen</th>
-                <th scope="col">Tramites</th>
-                <th scope="col">Opciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="table-primary" *ngFor="let item of organismosList; let i = index">
-                <th scope="row">{{item.id}}</th>
-                <td>{{item.nombre}}</td>
-                <td>
-                    <div class="container">
-                        <img width="80" height="80" [src]="item.imagen" alt="organismos">
-                    </div>
-                </td>
-                <td>
-                    <ul>
-                        <li *ngFor="let tramite of item.tramites">{{tramite.nombre}}</li>
-                    </ul>
-                </td>
-                <td>
-                    <div class="container d-flex justify-content-center me-auto">
-                        <button type="button" class="btn btn-danger">Eliminar</button>
-                        <!-- <button type="button" class="btn btn-warning" >Modificar</button>
-                        <button type="button" class="btn btn-success">Nuevo</button> -->
 
-                        <a href="admin/tramite" class="btn btn-warning">Modificar</a>
-                        <a href="admin/tramite" class="btn btn-success">Nuevo</a>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="container pt-5">
+        <a href="admin/tramite" class="btn btn-success">Nuevo</a>
+        <table class="table table-hover me-auto">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Trámites</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-primary" *ngFor="let item of organismosList; let i = index">
+                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.nombre}}</td>
+                    <td>
+                        <div class="container">
+                            <img width="80" height="80" [src]="item.imagen" alt="organismos">
+                        </div>
+                    </td>
+                    <td>
+                        <ul>
+                            <li *ngFor="let tramite of item.tramites">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span>{{tramite.nombre}}</span>
+                                    <div class="icon-container">
+                                        <a href="/admin/tramite" >
+                                            <i class="fas fa-edit text-warning"></i>
+                                        </a>
+                                        <a href="" >
+                                            <i class="fas fa-trash-alt text-danger"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <div class="container d-flex justify-content-center me-auto">
+                            <!-- Puedes agregar más opciones aquí si es necesario -->
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
