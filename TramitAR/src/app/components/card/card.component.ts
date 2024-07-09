@@ -4,7 +4,6 @@ import { DataService } from '../../services/data.service';
 import { Organismo } from '../../models/organismo.model';
 import { RouterLink } from '@angular/router';
 
-
 @Component({
   selector: 'app-card',
   standalone: true,
@@ -16,10 +15,9 @@ export class CardComponent implements OnInit {
 
   @Input() organism!: Organismo;//Habilita la puerta de entrada
 
-
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void { 
-
+    
   }
 }
