@@ -2,12 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Organismo } from '../../models/organismo.model';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })

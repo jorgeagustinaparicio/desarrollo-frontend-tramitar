@@ -9,19 +9,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
-
-
                 <li class="nav-item">
-                    <a class="nav-link active" href="/admin">Panel
+                   <!-- <a class="nav-link active" routerLink="/admin">Panel
                         <span class="visually-hidden">(current)</span>
-                    </a>
+                    </a> -->
                 </li>
-
             </ul>
-            <form (ngSubmit)="search()" class="d-flex">
-
-                <input [(ngModel)]="buscar" class="form-control me-sm-2" type="search" placeholder="Busar">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <form>
+                <input name="buscar" (input)="search($event)" class="form-control me-sm-2" type="search"
+                    placeholder="Buscar Tramite...">
             </form>
         </div>
     </div>
