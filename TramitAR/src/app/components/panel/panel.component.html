@@ -1,5 +1,5 @@
 <div class="container pt-5">
-    <a routerLink="/admin/tramite" class="btn btn-success">Nuevo</a>
+    <a routerLink="/admin/tramite/create" class="btn btn-success">Nuevo</a>
     <table class="table table-hover me-auto">
         <thead>
             <tr>
@@ -25,10 +25,10 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <span>{{tramite.nombre}}</span>
                                 <div class="icon-container">
-                                    <a routerLink="/admin/tramite">
+                                    <a [routerLink]="['/admin/tramite/edit', tramite.id]">
                                         <i class="fas fa-edit text-warning"></i>
                                     </a>
-                                    <a routerLink=".">
+                                    <a role="button" (click)="deleteTramite(tramite.id)">
                                         <i class="fas fa-trash-alt text-danger"></i>
                                     </a>
                                 </div>

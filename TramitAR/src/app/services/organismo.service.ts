@@ -6,20 +6,27 @@ import { Organismo } from '../models/organismo.model';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class OrganismoService {
 
   private apiUrl = 'http://localhost:3000/api/organismo'; // reemplaza con tu URL de API
 
   constructor(private http: HttpClient) { }
 
   //
-  getData(): Observable<{ organismos: Organismo[] }> {
+  getOrganismo(): Observable<{ organismos: Organismo[] }> {
     return this.http.get<{ organismos: Organismo[] }>(this.apiUrl)
   }
 
-  getOrganismo(): Observable<{ organismos: Organismo[] }> {
+  createOrganismo(item: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, item);
+  }
 
-    return this.http.get<{ organismos: Organismo[] }>(this.apiUrl)
+  updateOrganismo(id: number, item: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, item);
+  }
+
+  deleteOrganismo(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 
 }

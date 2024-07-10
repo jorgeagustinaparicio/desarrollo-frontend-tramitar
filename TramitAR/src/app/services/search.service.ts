@@ -13,6 +13,4 @@ export class SearchService {
   setSearch(search: string) {
     this.search.next(search)
   }
-
-
 }

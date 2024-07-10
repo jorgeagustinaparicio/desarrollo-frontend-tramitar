@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
+import { OrganismoService } from '../../services/organismo.service';
 import { Organismo } from '../../models/organismo.model';
 import { RouterLink } from '@angular/router';
 
@@ -15,9 +15,9 @@ export class CardComponent implements OnInit {
 
   @Input() organism!: Organismo;//Habilita la puerta de entrada
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: OrganismoService) { }
 
   ngOnInit(): void { 
-    
+
   }
 }
