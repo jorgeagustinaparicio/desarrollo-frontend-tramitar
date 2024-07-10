@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-panel',
@@ -37,5 +38,26 @@ export class PanelComponent implements OnInit {
   //     }
   //   })
   // }
+  async mostrarAlertaModificar(organismo: any) {
+    const { value: formValues } = await Swal.fire({
+      title: 'Modificar Organismo',
+      html: `
+        <input id="swal-input1" class="swal2-input" placeholder="Nuevo Nombre" value="${organismo.nombre}">
+        <input id="swal-input2" class="swal2-input" placeholder="Nueva Imagen URL" value="${organismo.imagen}">
+      `,
+      focusConfirm: false,
+      preConfirm: () => {
+        return [
+          (document.getElementById('swal-input1') as HTMLInputElement).value,
+          (document.getElementById('swal-input2') as HTMLInputElement).value
+        ];
+      }
+    });
 
+    if (formValues) {
+      Swal.fire(`Nuevos valores ingresados: ${JSON.stringify(formValues)}`);
+      // Aquí puedes realizar la actualización del organismo con los nuevos valores.
+      // Por ejemplo, podrías llamar a un método en tu servicio para actualizar los datos.
+    }
+  }
 }
