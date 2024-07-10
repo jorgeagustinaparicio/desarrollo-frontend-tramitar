@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { OrganismoService } from '../../services/organismo.service';
 import { CommonModule } from '@angular/common';
-import { SearchService } from '../../services/search.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Organismo } from '../../models/organismo.model';
-import { RouterLink } from '@angular/router';
+import { OrganismoService } from '../../services/organismo.service';
+import { SearchService } from '../../services/search.service';
 import { TramiteService } from '../../services/tramite.service';
 
 @Component({
@@ -20,14 +20,15 @@ export class PanelComponent implements OnInit {
   constructor(
     private organismoService: OrganismoService,
     private searchService: SearchService,
-    private tramiteService: TramiteService) { }
+    private tramiteService: TramiteService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getOrganismos()
   }
   getOrganismos() {
     this.organismoService.getOrganismo().subscribe((data: any) => {
-
       console.log('Data received:', data);
       this.organismosList = data.organismos;
       //aqui se asignan los organismos una vez resuelta la promesa
@@ -51,5 +52,4 @@ export class PanelComponent implements OnInit {
   updateTramite(id: number) {
 
   }
-
 }

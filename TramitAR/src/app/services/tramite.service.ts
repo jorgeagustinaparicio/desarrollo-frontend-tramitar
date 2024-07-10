@@ -27,5 +27,9 @@ export class TramiteService {
     return this.http.delete<any>(`${this.apiUrl + "/delete"}/${id}`);
   }
 
+  getItemById(id : number): Observable<Tramite>{
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+
 
 }
