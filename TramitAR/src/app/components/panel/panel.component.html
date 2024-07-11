@@ -13,17 +13,17 @@
         <tbody>
             <tr class="table-primary" *ngFor="let item of organismosList; let i = index">
                 <th scope="row">{{item.id}}</th>
-                <td>{{item.nombre}}</td>
+                <td>{{item.name}}</td>
                 <td>
                     <div class="container">
-                        <img width="80" height="80" [src]="item.imagen" alt="organismos">
+                        <img width="80" height="80" [src]="item.image_Url" alt="organismos">
                     </div>
                 </td>
                 <td>
                     <ul>
                         <li *ngFor="let tramite of item.tramites">
                             <div class="d-flex justify-content-between align-items-center">
-                                <span>{{tramite.nombre}}</span>
+                                <span>{{tramite.name}}</span>
                                 <div class="icon-container">
                                     <a [routerLink]="['/admin/tramite/edit', tramite.id]">
                                         <i class="fas fa-edit text-warning"></i>

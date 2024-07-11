@@ -7,12 +7,12 @@
                 <label for="exampleSelect1" class="form-label mt-4">Organismo</label>
                 <select name="id_organismo" [(ngModel)]="tramite.id_organismo" class="form-select"
                     id="exampleDisabledSelect1">
-                    <option *ngFor="let organismo of organismos" [value]="organismo.id">{{organismo.nombre}} </option>
+                    <option *ngFor="let organismo of organismos" [value]="organismo.id">{{organismo.name}} </option>
                 </select>
             </div>
             <div>
                 <label class="form-label mt-4">Tramite</label>
-                <input type="texto" name="nombre" [(ngModel)]="tramite.nombre" class="form-control" id="exampleInputEmail1"
+                <input type="texto" name="nombre" [(ngModel)]="tramite.name" class="form-control" id="exampleInputEmail1"
                     placeholder="Nombre de Tramite">
             </div>
             <br>

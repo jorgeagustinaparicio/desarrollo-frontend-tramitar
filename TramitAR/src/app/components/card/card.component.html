@@ -1,7 +1,7 @@
 <div class="card border-primary mb-3 ov-card-grid" style="width: 18rem;">
-    <img [src]="organism.imagen" class="card-img-top img-fluid ov-card-blur" alt="...">
+    <img [src]="organism.image_Url" class="card-img-top img-fluid ov-card-blur" alt="...">
     <div class="card-body">
-        <h5 class="card-title">{{ organism.nombre }}</h5>
+        <h5 class="card-title">{{ organism.name }}</h5>
         <div class="accordion" [id]="'accordionExample' + organism.id">
             <div class="accordion-item">
                 <h2 class="accordion-header" [id]="'heading' + organism.id">
@@ -17,7 +17,7 @@
                     <div class="accordion-body">
                         <ul class="list-group">
                             <li class="list-group-item" *ngFor="let tramite of organism.tramites">
-                                <a [href]="tramite.link">{{ tramite.nombre }}</a>
+                                <a [href]="tramite.link">{{ tramite.name }}</a>
                                 <p>{{tramite.descripcion}}</p>
                             </li>
                         </ul>

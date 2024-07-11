@@ -1,6 +1,7 @@
 export interface Tramite {
     id: number;
-    nombre: string;
+    name: string;
     descripcion: string;
     link: string;    
+    organismo : number;
 }

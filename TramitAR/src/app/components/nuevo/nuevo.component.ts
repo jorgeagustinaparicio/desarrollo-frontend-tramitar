@@ -17,37 +17,48 @@ import { Tramite } from '../../models/tramite.model';
 export class NuevoComponent implements OnInit {
   organismos: Organismo[] = [];
   tramite = {
-    nombre: "",
+    name: "",
     descripcion: "",
     link: "",
     id_organismo: 1 //por defecto en el select
   };
+  id!: string | null;
 
-  constructor(private organismoService: OrganismoService, private router: Router, private route: ActivatedRoute, private tramiteService: TramiteService) { }
+  constructor(
+    private organismoService: OrganismoService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private tramiteService: TramiteService) { }
+
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get("id");
     this.organismoService.getOrganismo().subscribe({
       next: o => {
         this.organismos = o.organismos
-
       }
     })
-    let id = this.route.snapshot.paramMap.get("id");
-    if (id) {
-      this.tramiteService.getTramite(parseInt(id)).subscribe({
+    this.id = this.route.snapshot.paramMap.get("id");
+    if (this.id) {
+      this.tramiteService.getTramiteById(parseInt(this.id)).subscribe({
         next: t => {
-          this.tramite.nombre = t.nombre;
+          this.tramite.name = t.name;
           this.tramite.descripcion = t.descripcion;
           this.tramite.link = t.link;
+          this.tramite.id_organismo = t.organismo;
         }
       });
     }
   }
-
   guardar() {
-    this.tramiteService.createTramite(this.tramite).subscribe();
-    this.router.navigate([".."], {relativeTo: this.route})
+    if (this.id) {
+      this.tramiteService.updateTramite(parseInt(this.id), this.tramite).subscribe(() => {
+        this.router.navigate(["../.."], { relativeTo: this.route })
+      })
+    } else {
+      this.tramiteService.createTramite(this.tramite).subscribe(() => {
+        this.router.navigate(["../.."], { relativeTo: this.route })
+      })
+    }
   };
-
-
 }

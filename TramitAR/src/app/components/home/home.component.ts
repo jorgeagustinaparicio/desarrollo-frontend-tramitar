@@ -17,7 +17,9 @@ export class HomeComponent implements OnInit {
   organismos: Organismo[] = [];//arreglo con datos obtenidos de la api
 
 
-  constructor(private organismoService: OrganismoService, private searchService: SearchService) { }
+  constructor(
+    private organismoService: OrganismoService,
+    private searchService: SearchService) { }
 
   ngOnInit(): void {//metodo que llama al servicio getData y se suscribe a la promesa que devuelve
 
@@ -29,12 +31,10 @@ export class HomeComponent implements OnInit {
         next: v => {
           this.organismos = organismosAux.map(o => ({
             ...o,
-            tramites: o.tramites.filter(t => t.nombre.toLowerCase().includes(v.toLowerCase())) // Cambiado aquí
+            tramites: o.tramites.filter(t => t.name.toLowerCase().includes(v.toLowerCase())) // Cambiado aquí
           })).filter(o => o.tramites.length > 0);
         }
       });
-            
     });
-
   }
 }

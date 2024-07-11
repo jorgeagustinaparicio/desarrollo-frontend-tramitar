@@ -5,6 +5,7 @@ import { Organismo } from '../../models/organismo.model';
 import { OrganismoService } from '../../services/organismo.service';
 import { SearchService } from '../../services/search.service';
 import { TramiteService } from '../../services/tramite.service';
+import { Tramite } from '../../models/tramite.model';
 
 @Component({
   selector: 'app-panel',
@@ -17,6 +18,8 @@ export class PanelComponent implements OnInit {
 
   organismosList: Organismo[] = [];
 
+  tramite: Tramite = { id: 0, name: 'hola', descripcion: '', link : '', organismo : 1 };
+
   constructor(
     private organismoService: OrganismoService,
     private searchService: SearchService,
@@ -25,8 +28,22 @@ export class PanelComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.tramiteService.getTramiteById(+id).subscribe((data : Tramite) =>{
+        this.tramite = data;
+      })
+    }    
     this.getOrganismos()
   }
+
+  onSubmit() : void {
+    this.tramiteService.getTramiteById(this.tramite.id).subscribe(() => {
+      this.router.navigate(["/tramites"])
+    })
+  }
+
+  
   getOrganismos() {
     this.organismoService.getOrganismo().subscribe((data: any) => {
       console.log('Data received:', data);
@@ -37,7 +54,7 @@ export class PanelComponent implements OnInit {
         next: v => {
           this.organismosList = organismosAux.map(o => ({
             ...o,
-            tramites: o.tramites.filter(t => t.nombre.toLowerCase().includes(v.toLowerCase())) // Cambiado aquí
+            tramites: o.tramites.filter(t => t.name.toLowerCase().includes(v.toLowerCase())) // Cambiado aquí
           })).filter(o => o.tramites.length > 0);
         }
       });
@@ -47,9 +64,5 @@ export class PanelComponent implements OnInit {
   deleteTramite(id: number) {
     this.tramiteService.deleteTramite(id).subscribe();
     location.reload();
-  }
-
-  updateTramite(id: number) {
-
-  }
+  } 
 }
