@@ -25,10 +25,10 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <span>{{tramite.name}}</span>
                                 <div class="icon-container">
-                                    <a [routerLink]="['/admin/tramite/edit', tramite.id]">
+                                    <a (click)="mostrarAlertaModificar(tramite)">
                                         <i class="fas fa-edit text-warning"></i>
                                     </a>
-                                    <a role="button" (click)="deleteTramite(tramite.id)">
+                                    <a (click)="mostrarMensajeConfirmacion(tramite)">
                                         <i class="fas fa-trash-alt text-danger"></i>
                                     </a>
                                 </div>
@@ -38,7 +38,6 @@
                 </td>
                 <td>
                     <div class="container d-flex justify-content-center me-auto">
-                        <!-- Puedes agregar más opciones aquí si es necesario -->
                     </div>
                 </td>
             </tr>
