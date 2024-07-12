@@ -1,7 +1,7 @@
 <div class="container pt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form (ngSubmit)="guardar()" class="p-3 border rounded card border-success mb-3">
+            <form (ngSubmit)="guardar()" class="p-5 border rounded card border-success mb-5">
                 <fieldset>
                     <legend class="text-center">Administrador de Tramite</legend>
                     <div class="mb-3">
@@ -24,6 +24,7 @@
                         <input type="text" class="form-control" name="link" [(ngModel)]="tramite.link"
                             placeholder="link para redirección">
                     </div>
+                    <br>
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary me-2">Guardar</button>
                         <a routerLink="/admin" class="btn btn-danger">Cancelar</a>

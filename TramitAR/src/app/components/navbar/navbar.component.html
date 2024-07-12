@@ -9,10 +9,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" routerLink="/admin">Panel
-                        <span class="visually-hidden">(current)</span>
-                    </a> 
+                <li class="nav-item" *ngIf="showLoginButton">
+                    <button class="btn btn-primary" (click)="showLoginAlert()">Iniciar sesión</button>
                 </li>
             </ul>
             <form>
