@@ -8,9 +8,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav me-auto ">
                 <li class="nav-item" *ngIf="showLoginButton">
-                    <button class="btn btn-primary" (click)="showLoginAlert()">Iniciar sesión</button>
+                    <button class="btn btn-primary" *ngIf="showLoginButton" (click)="showLoginAlert()">Iniciar
+                        sesión</button>
                 </li>
             </ul>
             <form>

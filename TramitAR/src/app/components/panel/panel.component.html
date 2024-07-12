@@ -1,46 +1,42 @@
 <div class="container pt-5">
-    <a routerLink="/admin/tramite/create" class="btn btn-success">Nuevo</a>
-    <table class="table table-hover me-auto">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Imagen</th>
-                <th scope="col">Trámites</th>
-                <th scope="col">Opciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="table-primary" *ngFor="let item of organismosList; let i = index">
-                <th scope="row">{{item.id}}</th>
-                <td>{{item.name}}</td>
-                <td>
-                    <div class="container">
-                        <img width="80" height="80" [src]="item.image_Url" alt="organismos">
-                    </div>
-                </td>
-                <td>
-                    <ul>
-                        <li *ngFor="let tramite of item.tramites">
-                            <div class="d-flex justify-content-between align-items-center">
+    <a routerLink="/admin/tramite/create" class="btn btn-success">Nuevo trámite</a>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Trámites</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-primary" *ngFor="let item of organismosList; let i = index">
+                    <th scope="row">{{item.id}}</th>
+                    <td class="w-25">{{item.name}}</td>
+                    <!-- Utiliza la clase w-25 para ajustar el ancho de la columna automáticamente -->
+                    <td>
+                        <div class="container">
+                            <img width="80" height="80" [src]="item.image_Url" alt="organismos">
+                        </div>
+                    </td>
+                    <td>
+                        <ul>
+                            <li *ngFor="let tramite of item.tramites">
                                 <span>{{tramite.name}}</span>
-                                <div class="icon-container">
-                                    <a (click)="mostrarAlertaModificar(tramite)">
+                                <div class="icon-container display-flex justify-content-between">
+                                    <a title="Modificar trámite" (click)="mostrarAlertaModificar(tramite)">
                                         <i class="fas fa-edit text-warning"></i>
                                     </a>
-                                    <a (click)="mostrarMensajeConfirmacion(tramite)">
+                                    <a title="Eliminar trámite" (click)="mostrarMensajeConfirmacion(tramite)">
                                         <i class="fas fa-trash-alt text-danger"></i>
                                     </a>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </td>
-                <td>
-                    <div class="container d-flex justify-content-center me-auto">
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

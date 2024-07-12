@@ -1,0 +1,14 @@
+li {
+    display: flex; /* Ajusta el layout de los elementos li como flex */
+    align-items: center; /* Alinea verticalmente el contenido de li */
+    margin-right: 10px; /* Ajusta el espaciado a la derecha de cada li */
+    justify-content: space-between;
+}
+.icon-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-container a {
+    margin-right: 10px; /* Ajusta el espacio a la derecha de cada enlace */
+}
